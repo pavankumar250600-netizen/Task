@@ -1,0 +1,12 @@
+Training day :01 
+HTML Basics
+1. creating our first html doc with title and basic structure .
+--> what is html.
+--> how a webpage is created
+--> full html doc str
+--> doctype html
+-->head tag
+--> title , body 
+
+--> basic tags
+-->simple idea to working page
