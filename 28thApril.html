@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/28thApril(1).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notification Card Interface</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    background: #34495e;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+    z-index: 1000;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+/* Card */
+.card {
+    position: relative;
+    width: 280px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Button */
+.card button {
+    padding: 8px 12px;
+    border: none;
+    background: #2980b9;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Badge */
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 5px 8px;
+    border-radius: 50%;
+}
+
+/* Hidden Messages */
+
+/* visibility */
+.message-visibility {
+    margin-top: 12px;
+    padding: 10px;
+    background: #e67e22;
+    color: white;
+    border-radius: 5px;
+    visibility: hidden;
+}
+
+/* display */
+.message-display {
+    margin-top: 10px;
+    padding: 10px;
+    background: #27ae60;
+    color: white;
+    border-radius: 5px;
+    display: none;
+}
+
+/* Show on hover */
+.card:hover .message-visibility {
+    visibility: visible;
+}
+
+.card:hover .message-display {
+    display: block;
+}
+
+/* Help Button */
+.help-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    background: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    Indian Food Notification Center
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <span class="badge">1</span>
+        <h3>Hyderabadi Biryani</h3>
+        <p>
+            Your flavorful Hyderabadi biryani is being prepared with aromatic spices 
+            and basmati rice. The dish is cooked slowly to ensure rich taste and 
+            authentic flavor in every bite.
+        </p>
+        <button>Track Order</button>
+
+        <div class="message-visibility">
+            New Notification! Your biryani is being cooked to perfection.
+        </div>
+        <div class="message-display">
+            New Notification! Your delicious biryani will be delivered soon.
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="badge">2</span>
+        <h3>Masala Dosa</h3>
+        <p>
+            Your crispy masala dosa is being freshly prepared with a golden texture 
+            and stuffed with spiced potato filling. Served hot with chutney and sambar.
+        </p>
+        <button>View Details</button>
+
+        <div class="message-visibility">
+            New Notification! Your dosa is being freshly made.
+        </div>
+        <div class="message-display">
+            New Notification! Enjoy your hot and crispy dosa soon.
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="badge">2</span>
+        <h3>Gulab Jamun</h3>
+        <p>
+            Your sweet gulab jamun is ready, soaked in rich sugar syrup and prepared 
+            to give you a soft and delightful dessert experience after your meal.
+        </p>
+        <button>Check Item</button>
+
+        <div class="message-visibility">
+            New Notification! Your dessert is ready to serve.
+        </div>
+        <div class="message-display">
+            New Notification! Enjoy your sweet treat shortly.
+        </div>
+    </div>
+
+</div>
+
+<button class="help-btn">Help</button>
+
+
+</body></html>
