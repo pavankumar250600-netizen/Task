@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem 5%; 
+            /* FLEXBOX: Aligns the logo and navigation items horizontally */
+            display: flex;
+            justify-content: space-between; /* Pushes logo left, nav right */
+            align-items: center; /* Centers items vertically */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            /* FLEXBOX: Lays out the navigation links horizontally */
+            display: flex;
+            /* MARGIN: Adds space specifically between each navigation link */
+            gap: 1.5rem; 
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            height: 70vh;
+            /* FLEXBOX: Centers the text perfectly in the middle of the screen */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* PADDING: Ensures text doesn't touch the sides on small screens */
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            /* MARGIN: Space below the heading, pushing the paragraph down */
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            /* MARGIN: Space below the paragraph, pushing the button down */
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: #ffcc00;
+            color: #003366;
+            /* PADDING: Makes the button thicker and wider (top/bottom, left/right) */
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e6b800;
+        }
+
+        .stats {
+            background-color: white;
+            /* FLEXBOX: Distributes stat items evenly in a row */
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            /* PADDING: Inner space */
+            padding: 3rem 5%;
+            /* MARGIN: Space outside, pushing it away from adjacent sections */
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+            /* MARGIN: Space around each individual stat item */
+            margin: 1rem;
+        }
+
+        .stat-item h3 {
+            color: #003366;
+            font-size: 2.5rem;
+        }
+        
+        .programs {
+            /* PADDING: Inner spacing for the whole section */
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .programs h2 {
+            color: #003366;
+            /* MARGIN: Pushes the grid down away from the title */
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .programs-grid {
+            /* GRID: Creates a responsive grid layout for the cards */
+            display: grid;
+            /* Auto-fit and minmax make it responsive without media queries! */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* GAP: Grid-specific spacing between rows and columns (combines margin concepts) */
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: left;
+            /* FLEXBOX inside the grid item to stack content neatly */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 200px;
+            background-color: #ddd;
+            width: 100%;
+        }
+
+        /* Inline placeholder images using varied colors */
+        .img-1 { background: linear-gradient(45deg, #FF6B6B, #FF8E53); }
+        .img-2 { background: linear-gradient(45deg, #4E65FF, #92EFFD); }
+        .img-3 { background: linear-gradient(45deg, #11998E, #38EF7D); }
+
+        .card-content {
+            /* PADDING: Keeps the text away from the edges of the white card */
+            padding: 1.5rem;
+            flex-grow: 1; /* Pushes the button to the bottom if cards are different heights */
+        }
+
+        .card-content h3 {
+            /* MARGIN: Space below the card heading */
+            margin-bottom: 0.5rem;
+            color: #003366;
+        }
+
+        .card-content p {
+            color: #666;
+            /* MARGIN: Space below the card paragraph */
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            background-color: #222;
+            color: #ccc;
+            /* PADDING: Large spacing inside the top and bottom of footer */
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-grid {
+            /* GRID: Lays out footer columns */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            /* MARGIN: Space below the grid before the copyright line */
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            /* MARGIN: Space below the footer headings */
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            /* MARGIN: Space between list items in the footer */
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            /* PADDING: Space above the copyright text */
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+
+        /* Responsive adjustment for Mobile Navigation */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Horizon University</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">Home</a></li>
+                <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">Academics</a></li>
+                <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">Admissions</a></li>
+                <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">Campus Life</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Empowering Your Future</h2>
+        <p>Discover a world-class education designed to innovate, inspire, and elevate your career to the next level.</p>
+        <a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#" class="btn">Apply Now</a>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="stats">
+        <div class="stat-item">
+            <h3>50+</h3>
+            <p>Undergraduate Programs</p>
+        </div>
+        <div class="stat-item">
+            <h3>15:1</h3>
+            <p>Student-to-Faculty Ratio</p>
+        </div>
+        <div class="stat-item">
+            <h3>95%</h3>
+            <p>Graduate Employment</p>
+        </div>
+        <div class="stat-item">
+            <h3>120+</h3>
+            <p>Student Clubs &amp; Organizations</p>
+        </div>
+    </section>
+
+    <!-- Programs Listing -->
+    <section class="programs">
+        <h2>Featured Departments</h2>
+        <div class="programs-grid">
+            
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-img img-1"></div>
+                <div class="card-content">
+                    <h3>College of Engineering</h3>
+                    <p>Build the future with our cutting-edge labs and industry-experienced faculty. Programs in Mechanical, Civil, and Computer Engineering.</p>
+                    <a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#" style="color: #003366; font-weight: bold; text-decoration: none;">Learn More →</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-img img-2"></div>
+                <div class="card-content">
+                    <h3>School of Business</h3>
+                    <p>Develop leadership and entrepreneurial skills to thrive in the global marketplace. AACSB-accredited programs.</p>
+                    <a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#" style="color: #003366; font-weight: bold; text-decoration: none;">Learn More →</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-img img-3"></div>
+                <div class="card-content">
+                    <h3>Arts &amp; Sciences</h3>
+                    <p>Explore your passions with diverse programs in Humanities, Biological Sciences, and Digital Arts.</p>
+                    <a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#" style="color: #003366; font-weight: bold; text-decoration: none;">Learn More →</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Horizon University</h4>
+                <p>123 University Blvd.<br>Innovation City, ST 12345<br>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">About Us</a></li>
+                    <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">Financial Aid</a></li>
+                    <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">Student Portal</a></li>
+                    <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">Alumni</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">Library</a></li>
+                    <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">Campus Map</a></li>
+                    <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">Career Center</a></li>
+                    <li><a href="file:///C:/Users/ASUS/OneDrive/Documents/GitHub/task/29thApril.html#">Athletics</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Horizon University. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+</body></html>
